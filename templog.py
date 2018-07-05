@@ -20,9 +20,9 @@ with open("cpu_temp.csv","a") as log:
         plt.scatter(x,y)
         plt.plot(x,y)
         plt.draw()"""
-        log.write("{0},{1}\n".format(strftime("%Y-%m-%d %H:%M:%S"),str(temp)))
+        log.write("{0},{1}\n".format(strftime("%Y-%m-%d %H:%M:%S"),str(temp))) #to log the data in csv file
         sleep(1)
-        conn = urllib2.urlopen(baseURL + '&field1=%s' % temp)
+        conn = urllib2.urlopen(baseURL + '&field1=%s' % temp) #connection with thingspeak channel
         print conn.read()
         conn.close()
         
